@@ -283,6 +283,11 @@ export function getPriceDataForHotel(hotelId: string): DatePriceAvailability[] {
     return getPriceData().filter(p => p.hotel_id === hotelId);
 }
 
+// Alias for getAllPriceData
+export function getAllPriceData(): DatePriceAvailability[] {
+    return getPriceData();
+}
+
 export function getPriceDataForDate(date: string): DatePriceAvailability[] {
     return getPriceData().filter(p => p.date === date);
 }
