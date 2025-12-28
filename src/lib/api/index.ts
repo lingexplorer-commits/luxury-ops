@@ -142,7 +142,11 @@ export const pricesApi = {
             return json.data;
         }
         await delay(50);
-        return calculateDateRangeSummary(hotelId, startDate, endDate);
+        // Get price data for the date range first
+        const priceData = getPriceDataForHotel(hotelId).filter(
+            p => p.date >= startDate && p.date <= endDate
+        );
+        return calculateDateRangeSummary(priceData);
     },
 
     // Refresh price from channel (trigger sync)
